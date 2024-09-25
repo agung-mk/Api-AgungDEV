@@ -1,5 +1,3 @@
-Tambah kan select gpt model nya
-
 const swaggerUi = require("swagger-ui-express");
 const config = require("./config");
 const { SwaggerTheme, SwaggerThemeNameEnum } = require("swagger-themes");
