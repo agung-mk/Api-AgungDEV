@@ -38,6 +38,7 @@ const swaggerDocument = {
   servers: [
     {
       url: config.host.BASE_URL,
+     "description": "AgungDEV server"
     },
   ],
   tags: [
