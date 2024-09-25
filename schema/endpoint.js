@@ -1,8 +1,12 @@
+Tambah kan select gpt model nya
+
 const swaggerUi = require("swagger-ui-express");
 const config = require("./config");
 const { SwaggerTheme, SwaggerThemeNameEnum } = require("swagger-themes");
 
 const theme = new SwaggerTheme();
+const inUrl = "Please input URL!";
+const inQuery = "Please input Query!";
 
 const options = {
   customSiteTitle: config.options.webName,
@@ -42,33 +46,26 @@ const swaggerDocument = {
   tags: [
     {
       name: "AI",
-      description: "Endpoints related to AI models",
+      description: "",
     },
   ],
   paths: {
     "/api/ai/gpt": {
       get: {
         tags: ["AI"],
-        summary: "Chat with GPT AI (choose GPT model)",
+        summary: "Chat with GPT-4 AI using Itzpire",
         parameters: [
           {
             in: "query",
-            name: "model",
-            description: "Select GPT model (gpt-3 or gpt-4)", // Deskripsi untuk parameter model
-            required: true,
-            schema: {
-              type: "string",
-              enum: ["gpt-4", "gpt-3"],  // Pilihan model GPT
-            },
-          },
-          {
-            in: "query",
             name: "query",
-            description: "Please input your query or question", // Deskripsi untuk parameter query
+            description: "Select GPT model",
             required: true,
             schema: {
               type: "string",
+              enum: ["gpt-4", "gpt-3"]
             },
+            required: true,
+            description: "Please input your query",
           },
         ],
         responses: {
@@ -95,26 +92,6 @@ const swaggerDocument = {
                           example: "Hello! How can I assist you today?",
                         },
                       },
-                    },
-                  },
-                },
-              },
-            },
-          },
-          404: {
-            description: "Model not found",
-            content: {
-              "application/json": {
-                schema: {
-                  type: "object",
-                  properties: {
-                    status: {
-                      type: "boolean",
-                      example: false,
-                    },
-                    error: {
-                      type: "string",
-                      example: "Model not found. Please select 'gpt-3' or 'gpt-4'.",
                     },
                   },
                 },
