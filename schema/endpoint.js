@@ -3,8 +3,6 @@ const config = require("./config");
 const { SwaggerTheme, SwaggerThemeNameEnum } = require("swagger-themes");
 
 const theme = new SwaggerTheme();
-const inUrl = "Please input URL!";
-const inQuery = "Please input Query!";
 
 const options = {
   customSiteTitle: config.options.webName,
@@ -56,17 +54,17 @@ const swaggerDocument = {
           {
             in: "query",
             name: "model",
-            description: "Select GPT model (gpt-3 or gpt-4)",
+            description: "Select GPT model (gpt-3 or gpt-4)", // Deskripsi untuk parameter model
             required: true,
             schema: {
               type: "string",
-              enum: ["gpt-4", "gpt-3"],  // Pilihan model GPT yang tersedia
+              enum: ["gpt-4", "gpt-3"],  // Pilihan model GPT
             },
           },
           {
             in: "query",
             name: "query",
-            description: "Enter your query or question",
+            description: "Please input your query or question", // Deskripsi untuk parameter query
             required: true,
             schema: {
               type: "string",
