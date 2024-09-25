@@ -38,30 +38,20 @@ const swaggerDocument = {
   servers: [
     {
       url: config.host.BASE_URL,
-     "description": "AgungDEV server"
+      description: "AgungDEV server",
     },
   ],
   tags: [
     {
       name: "AI",
-      description:
-        "",
+      description: "",
     },
-    // {
-    //   name: "Downloader",
-    //   description:
-    //     "API endpoints for downloading content from various platforms.",
-    // },
-    // {
-    //   name: "Tools",
-    //   description: "API endpoints for content tools from multiple platforms.",
-    // },
   ],
   paths: {
-    "/api/ai/chatgpt": {
+    "/api/ai/gptitzpire": {
       get: {
         tags: ["AI"],
-        summary: "Chat with GPT AI",
+        summary: "Chat with GPT-4 AI using Itzpire",
         parameters: [
           {
             in: "query",
@@ -70,7 +60,7 @@ const swaggerDocument = {
               type: "string",
             },
             required: true,
-            description: inQuery,
+            description: "Please input your query",
           },
         ],
         responses: {
@@ -94,7 +84,7 @@ const swaggerDocument = {
                       properties: {
                         message: {
                           type: "string",
-                          example: "Hello! How can I help you today?",
+                          example: "Hello! How can I assist you today?",
                         },
                       },
                     },
@@ -106,64 +96,7 @@ const swaggerDocument = {
         },
       },
     },
-    "/api/ai/gptlogic": {
-      get: {
-        tags: ["AI"],
-        summary: "Chat with GPT Logic",
-        parameters: [
-          {
-            in: "query",
-            name: "query",
-            schema: {
-              type: "string",
-            },
-            required: true,
-            description: inQuery,
-          },
-          {
-            in: "query",
-            name: "prompt",
-            schema: {
-              type: "string",
-            },
-            required: true,
-            description: inQuery,
-          },
-        ],
-        responses: {
-          200: {
-            description: "Result successfully returned",
-            content: {
-              "application/json": {
-                schema: {
-                  type: "object",
-                  properties: {
-                    status: {
-                      type: "boolean",
-                      example: true,
-                    },
-                    developer: {
-                      type: "string",
-                      example: config.options.developer,
-                    },
-                    result: {
-                      type: "object",
-                      properties: {
-                        message: {
-                          type: "string",
-                          example:
-                            "Hello! How can I help you with your prompt?",
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    },
+    // Tambahkan endpoint lain jika ada
   },
   "x-request-time": new Date().toISOString(),
 };
