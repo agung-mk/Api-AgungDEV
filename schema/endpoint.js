@@ -56,11 +56,8 @@ const swaggerDocument = {
           {
             in: "query",
             name: "query",
-            description: "Select GPT model",
-            required: true,
             schema: {
               type: "string",
-              enum: ["gpt-4", "gpt-3"]
             },
             required: true,
             description: "Please input your query",
