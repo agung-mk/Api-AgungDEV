@@ -9,7 +9,7 @@ const options = {
 };
 
 const host = {
-  BASE_URL: "https://itzpire.com",
+  BASE_URL: "agungdev.us.kg",
 };
 
 module.exports = {
