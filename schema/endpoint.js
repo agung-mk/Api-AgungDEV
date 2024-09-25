@@ -58,7 +58,7 @@ const swaggerDocument = {
     // },
   ],
   paths: {
-    "/api/ai/chatgpt": {
+    "/ai/gpt": {
       get: {
         tags: ["AI"],
         summary: "Chat with GPT AI",
