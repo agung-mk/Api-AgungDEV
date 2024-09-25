@@ -44,26 +44,33 @@ const swaggerDocument = {
   tags: [
     {
       name: "AI",
-      description: "",
+      description: "Endpoints related to AI models",
     },
   ],
   paths: {
     "/api/ai/gpt": {
       get: {
         tags: ["AI"],
-        summary: "Chat with GPT-4 AI using Itzpire",
+        summary: "Chat with GPT AI (choose GPT model)",
         parameters: [
           {
             in: "query",
-            name: "query",
-            description: "Select GPT model",
+            name: "model",
+            description: "Select GPT model (gpt-3 or gpt-4)",
             required: true,
             schema: {
               type: "string",
-              enum: ["gpt-4", "gpt-3"]
+              enum: ["gpt-4", "gpt-3"],  // Pilihan model GPT yang tersedia
             },
+          },
+          {
+            in: "query",
+            name: "query",
+            description: "Enter your query or question",
             required: true,
-            description: "Please input your query",
+            schema: {
+              type: "string",
+            },
           },
         ],
         responses: {
@@ -90,6 +97,26 @@ const swaggerDocument = {
                           example: "Hello! How can I assist you today?",
                         },
                       },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          404: {
+            description: "Model not found",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: {
+                      type: "boolean",
+                      example: false,
+                    },
+                    error: {
+                      type: "string",
+                      example: "Model not found. Please select 'gpt-3' or 'gpt-4'.",
                     },
                   },
                 },
