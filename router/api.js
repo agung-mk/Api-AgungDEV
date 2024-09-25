@@ -42,14 +42,11 @@ router.get("/ai/chatgpt", async (req, res) => {
   try {
     const data = await danz.ai.ChatGpt(query);
     if (!data) return res.status(404).json(messages.notRes);
-    
     res.json({
-      status: "success",
-      author: dev, 
-      code: 200, 
-      data: {
-        model: "gpt-4",
-        response: data,
+      status: true,
+      developer: dev,
+      result: {
+        message: data,
       },
     });
   } catch (e) {
