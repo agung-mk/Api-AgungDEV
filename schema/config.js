@@ -9,7 +9,7 @@ const options = {
 };
 
 const host = {
-  BASE_URL: "https://api.agungdev.us.kg",
+  BASE_URL: "https://agungdocs.us.kg",
 };
 
 module.exports = {
