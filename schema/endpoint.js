@@ -48,7 +48,7 @@ const swaggerDocument = {
     },
   ],
   paths: {
-    "/api/ai/gptitzpire": {
+    "/api/ai/gpt": {
       get: {
         tags: ["AI"],
         summary: "Chat with GPT-4 AI using Itzpire",
