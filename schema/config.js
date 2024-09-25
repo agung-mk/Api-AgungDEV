@@ -1,15 +1,16 @@
 const options = {
-  name: "AgungDEV APIs",
-  developer: "@siagungg_",
+  name: "HitamAPIs",
+  developer: "@sayuran.vip",
   port: 3000,
-  webName: "AgungDEV APIs Playground",
+  webName: "HitamAPIs Playground",
   description: "Simple Base Rest API",
   favicon:
-    "https://tmpfiles.org/dl/13333076/tmp.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Black.png/220px-Black.png",
 };
 
 const host = {
-  BASE_URL: "https://agungdev.us.kg",
+  BASE_URL: "https://agungdev.us.kg", // Ganti dengan URL yang sesuai
+  // Contoh: https://domain.com
 };
 
 module.exports = {
