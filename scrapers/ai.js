@@ -1,12 +1,12 @@
 const axios = require("axios");
 
-exports.luminai = async (q, username) => {
+exports.itzpireGPT = async (q, username) => {
   try {
-    const response = await axios.post("https://luminai.siputzx.my.id/sesi", {
-      content: q,
-      user: username,
+    const response = await axios.post("https://api.itzpire.com/gpt-endpoint", { // Ubah ke URL API Itzpire
+      prompt: q, // Sesuaikan dengan parameter yang diminta oleh API Itzpire
+      user: username, // Jika username diperlukan, tambahkan atau sesuaikan.
     });
-    return response.data.result;
+    return response.data.response; // Sesuaikan dengan struktur response dari Itzpire API
   } catch (error) {
     console.error("Error fetching:", error);
     throw error;
