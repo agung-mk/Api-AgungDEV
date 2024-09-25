@@ -35,7 +35,7 @@ const messages = {
 };
 
 // AI Routes
-router.get("/ai/gptitzpire", async (req, res) => {
+router.get("/ai/gpt", async (req, res) => {
   const { query } = req.query;
   if (!query) return res.status(400).json(messages.query);
 
