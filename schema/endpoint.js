@@ -44,7 +44,7 @@ const swaggerDocument = {
     {
       name: "AI",
       description:
-        "API endpoints for artificial intelligence content from various platforms.",
+        "",
     },
     // {
     //   name: "Downloader",
