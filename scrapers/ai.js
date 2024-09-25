@@ -1,14 +1,19 @@
 const axios = require("axios");
 
-exports.itzpireGPT = async (q, username) => {
+exports.gptItzpire = async (q) => {
   try {
-    const response = await axios.post("https://api.itzpire.com/gpt-endpoint", { // Ubah ke URL API Itzpire
-      prompt: q, // Sesuaikan dengan parameter yang diminta oleh API Itzpire
-      user: username, // Jika username diperlukan, tambahkan atau sesuaikan.
+    const response = await axios.get("https://itzpire.com/ai/gpt", {
+      params: {
+        model: "gpt-4",
+        q: q
+      },
+      headers: {
+        accept: "application/json"
+      }
     });
-    return response.data.response; // Sesuaikan dengan struktur response dari Itzpire API
+    return response.data.data.response; // Mengambil respons dari Itzpire
   } catch (error) {
-    console.error("Error fetching:", error);
+    console.error("Error fetching GPT response from Itzpire:", error);
     throw error;
   }
 };
