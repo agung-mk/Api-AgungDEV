@@ -18,14 +18,7 @@ const options = {
     "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.css",
     "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css",
   ],
-  customCss: `
-    ${theme.getBuffer(SwaggerThemeNameEnum.DARK)}
-    .topbar { display: none; }
-    .swagger-ui .info { font-size: 0.8rem; }
-    .swagger-ui .opblock-summary-description { font-size: 0.75rem; }
-    .swagger-ui .opblock-summary-path { font-size: 0.75rem; }
-    .swagger-ui .opblock-summary-method { font-size: 0.75rem; }
-  `,
+  customCss: `${theme.getBuffer(SwaggerThemeNameEnum.DARK)}.topbar { display: none; }`,
   swaggerOptions: {
     displayRequestDuration: true,
   },
@@ -100,10 +93,10 @@ const swaggerDocument = {
               },
             },
           },
-        ],
+        },
       },
     },
-  ],
+  },
   "x-request-time": new Date().toISOString(),
 };
 
