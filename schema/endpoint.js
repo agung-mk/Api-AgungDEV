@@ -21,13 +21,13 @@ const options = {
   customCss: `
     ${theme.getBuffer(SwaggerThemeNameEnum.DARK)}
     .topbar { display: none; }
-    .swagger-ui .info { font-size: 0.75rem; }
-    .swagger-ui .opblock-summary-description { font-size: 0.7rem; }
-    .swagger-ui .opblock-summary-path { font-size: 0.7rem; }
-    .swagger-ui .opblock-summary-method { font-size: 0.7rem; }
-    .swagger-ui .btn { font-size: 0.7rem; }
-    .swagger-ui .response-col_status { font-size: 0.7rem; }
-    .swagger-ui .opblock-body pre { font-size: 0.7rem; }
+    .swagger-ui .info { font-size: 1.5rem; }
+    .swagger-ui .opblock-summary-description { font-size: 1.2rem; }
+    .swagger-ui .opblock-summary-path { font-size: 1.2rem; }
+    .swagger-ui .opblock-summary-method { font-size: 1.2rem; }
+    .swagger-ui .btn { font-size: 1.2rem; }
+    .swagger-ui .response-col_status { font-size: 1.2rem; }
+    .swagger-ui .opblock-body pre { font-size: 1.2rem; }
   `,
   swaggerOptions: {
     displayRequestDuration: true,
