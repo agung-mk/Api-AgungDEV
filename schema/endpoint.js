@@ -21,10 +21,10 @@ const options = {
   customCss: `
     ${theme.getBuffer(SwaggerThemeNameEnum.DARK)}
     .topbar { display: none; }
-    .swagger-ui .info { font-size: 0.8rem; } /* Mengubah ukuran teks info */
-    .swagger-ui .opblock-summary-description { font-size: 0.75rem; } /* Mengubah ukuran deskripsi endpoint */
-    .swagger-ui .opblock-summary-path { font-size: 0.75rem; } /* Mengubah ukuran path endpoint */
-    .swagger-ui .opblock-summary-method { font-size: 0.75rem; } /* Mengubah ukuran button method */
+    .swagger-ui .info { font-size: 0.8rem; }
+    .swagger-ui .opblock-summary-description { font-size: 0.75rem; }
+    .swagger-ui .opblock-summary-path { font-size: 0.75rem; }
+    .swagger-ui .opblock-summary-method { font-size: 0.75rem; }
   `,
   swaggerOptions: {
     displayRequestDuration: true,
@@ -100,10 +100,10 @@ const swaggerDocument = {
               },
             },
           },
-        },
+        ],
       },
     },
-  },
+  ],
   "x-request-time": new Date().toISOString(),
 };
 
