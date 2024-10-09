@@ -18,15 +18,15 @@ const options = {
     "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.css",
     "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css",
   ],
-  // Modifikasi custom CSS untuk mengecilkan ukuran tampilan
+ 
   customCss: `
     ${theme.getBuffer(SwaggerThemeNameEnum.DARK)} 
     .topbar { display: none; }
-    .swagger-ui .info h1 { font-size: 18px; } /* Mengurangi ukuran judul */
-    .swagger-ui .opblock-summary { padding: 5px; } /* Mengurangi padding di summary */
-    .swagger-ui .btn { font-size: 12px; padding: 5px 10px; } /* Mengurangi ukuran font dan padding tombol */
-    .swagger-ui .parameters { font-size: 12px; } /* Mengurangi ukuran font parameter */
-    .swagger-ui .responses-table td { font-size: 12px; padding: 5px; } /* Mengecilkan tabel response */
+    .swagger-ui .info h1 { font-size: 18px; }
+    .swagger-ui .opblock-summary { padding: 5px; }
+    .swagger-ui .btn { font-size: 12px; padding: 5px 10px; } 
+    .swagger-ui .parameters { font-size: 12px; } 
+    .swagger-ui .responses-table td { font-size: 12px; padding: 5px; }
   `,
   swaggerOptions: {
     displayRequestDuration: true,
