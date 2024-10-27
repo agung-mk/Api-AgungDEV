@@ -1,3 +1,4 @@
+
 const swaggerUi = require("swagger-ui-express");
 const config = require("./config");
 const { SwaggerTheme, SwaggerThemeNameEnum } = require("swagger-themes");
@@ -18,17 +19,7 @@ const options = {
     "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.css",
     "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css",
   ],
-  customCss: `
-    ${theme.getBuffer(SwaggerThemeNameEnum.DARK)}
-    .topbar { display: none; }
-    .swagger-ui .info { font-size: 1.5rem; }
-    .swagger-ui .opblock-summary-description { font-size: 1.2rem; }
-    .swagger-ui .opblock-summary-path { font-size: 1.2rem; }
-    .swagger-ui .opblock-summary-method { font-size: 1.2rem; }
-    .swagger-ui .btn { font-size: 1.2rem; }
-    .swagger-ui .response-col_status { font-size: 1.2rem; }
-    .swagger-ui .opblock-body pre { font-size: 1.2rem; }
-  `,
+  customCss: `${theme.getBuffer(SwaggerThemeNameEnum.DARK)}.topbar { display: none; }`,
   swaggerOptions: {
     displayRequestDuration: true,
   },
@@ -48,20 +39,29 @@ const swaggerDocument = {
   servers: [
     {
       url: config.host.BASE_URL,
-      description: "AgungDEV server",
     },
   ],
   tags: [
     {
       name: "AI",
-      description: "",
+      description:
+        "API endpoints for artificial intelligence content from various platforms.",
     },
+    // {
+    //   name: "Downloader",
+    //   description:
+    //     "API endpoints for downloading content from various platforms.",
+    // },
+    // {
+    //   name: "Tools",
+    //   description: "API endpoints for content tools from multiple platforms.",
+    // },
   ],
   paths: {
-    "/api/ai/gpt": {
+    "/api/ai/chatgpt": {
       get: {
         tags: ["AI"],
-        summary: "Chat with GPT-4 AI using Itzpire",
+        summary: "Chat with GPT AI",
         parameters: [
           {
             in: "query",
@@ -70,7 +70,7 @@ const swaggerDocument = {
               type: "string",
             },
             required: true,
-            description: "Please input your query",
+            description: inQuery,
           },
         ],
         responses: {
@@ -94,7 +94,7 @@ const swaggerDocument = {
                       properties: {
                         message: {
                           type: "string",
-                          example: "Hello! How can I assist you today?",
+                          example: "Hello! How can I help you today?",
                         },
                       },
                     },
@@ -106,60 +106,57 @@ const swaggerDocument = {
         },
       },
     },
-    "/api/ai/widipe": {
-  get: {
-    tags: ["AI"],
-    summary: "Chat with Widipe AI",
-    parameters: [
-      {
-        in: "query",
-        name: "text",
-        schema: {
-          type: "string",
-        },
-        required: true,
-        description: "Please input your text",
-      },
-    ],
-    responses: {
-      200: {
-        description: "Result successfully returned from Widipe",
-        content: {
-          "application/json": {
+    "/api/ai/gptlogic": {
+      get: {
+        tags: ["AI"],
+        summary: "Chat with GPT Logic",
+        parameters: [
+          {
+            in: "query",
+            name: "query",
             schema: {
-              type: "object",
-              properties: {
-                status: {
-                  type: "boolean",
-                  example: true,
-                },
-                creator: {
-                  type: "string",
-                  example: "widipe.com",
-                },
-                result: {
-                  type: "string",
-                  example: "Hallo! Wie kann ich dir helfen?",
-                },
-              },
+              type: "string",
             },
+            required: true,
+            description: inQuery,
           },
-        },
-      },
-      404: {
-        description: "Error: Endpoint not found",
-        content: {
-          "application/json": {
+          {
+            in: "query",
+            name: "prompt",
             schema: {
-              type: "object",
-              properties: {
-                status: {
-                  type: "boolean",
-                  example: false,
-                },
-                message: {
-                  type: "string",
-                  example: "Endpoint not found, please check the URL",
+              type: "string",
+            },
+            required: true,
+            description: inQuery,
+          },
+        ],
+        responses: {
+          200: {
+            description: "Result successfully returned",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: {
+                      type: "boolean",
+                      example: true,
+                    },
+                    developer: {
+                      type: "string",
+                      example: config.options.developer,
+                    },
+                    result: {
+                      type: "object",
+                      properties: {
+                        message: {
+                          type: "string",
+                          example:
+                            "Hello! How can I help you with your prompt?",
+                        },
+                      },
+                    },
+                  },
                 },
               },
             },
@@ -168,5 +165,7 @@ const swaggerDocument = {
       },
     },
   },
-}
+  "x-request-time": new Date().toISOString(),
+};
 
+module.exports = { swaggerDocument, options };
