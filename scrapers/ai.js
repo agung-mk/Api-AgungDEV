@@ -2,7 +2,7 @@ const axios = require("axios");
 
 exports.luminai = async (q, username) => {
   try {
-    const response = await axios.post("https://luminai.siputzx.my.id/sesi", {
+    const response = await axios.post("https://luminai.my.id//sesi", {
       content: q,
       user: username,
     });
