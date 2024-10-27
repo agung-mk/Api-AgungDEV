@@ -106,6 +106,49 @@ const swaggerDocument = {
         },
       },
     },
+    "/api/ai/widipe": {
+      get: {
+        tags: ["AI"],
+        summary: "Chat with Widipe AI",
+        parameters: [
+          {
+            in: "query",
+            name: "text",
+            schema: {
+              type: "string",
+            },
+            required: true,
+            description: "Please input your text",
+          },
+        ],
+        responses: {
+          200: {
+            description: "Result successfully returned from Widipe",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: {
+                      type: "boolean",
+                      example: true,
+                    },
+                    developer: {
+                      type: "string",
+                      example: config.options.developer,
+                    },
+                    result: {
+                      type: "string",
+                      example: "Hello! This is a response from Widipe AI.",
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
   "x-request-time": new Date().toISOString(),
 };
