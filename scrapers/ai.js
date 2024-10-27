@@ -11,9 +11,9 @@ exports.gptItzpire = async (q) => {
         accept: "application/json"
       }
     });
-    return response.data.data.response; 
+    return response.data.data.response;
   } catch (error) {
-    console.error("Error fetching GPT response from Itzpire:", error);
+    console.error("Error fetching GPT response from Itzpire:", error.message);
     throw error;
   }
 };
@@ -32,8 +32,9 @@ exports.gptWidipe = async (text) => {
   } catch (error) {
     if (error.response && error.response.status === 404) {
       console.error("Endpoint not found (404): Check the URL or endpoint availability");
+      throw new Error("Endpoint not found");
     } else {
-      console.error("Error fetching GPT response from Widipe:", error);
+      console.error("Error fetching GPT response from Widipe:", error.message);
     }
     throw error;
   }
