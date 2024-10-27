@@ -133,13 +133,13 @@ const swaggerDocument = {
                       type: "boolean",
                       example: true,
                     },
-                    developer: {
+                    creator: {
                       type: "string",
-                      example: config.options.developer,
+                      example: "widipe.com",
                     },
                     result: {
                       type: "string",
-                      example: "Hello! This is a response from Widipe AI.",
+                      example: "Hallo! Wie kann ich dir helfen?",
                     },
                   },
                 },
