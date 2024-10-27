@@ -17,3 +17,21 @@ exports.gptItzpire = async (q) => {
     throw error;
   }
 };
+
+// Fungsi baru untuk mengakses AI dari widipe.com
+exports.gptWidipe = async (text) => {
+  try {
+    const response = await axios.get("https://widipe.com/openai", {
+      params: {
+        text: text
+      },
+      headers: {
+        accept: "application/json"
+      }
+    });
+    return response.data; // Mengambil respons dari Widipe
+  } catch (error) {
+    console.error("Error fetching GPT response from Widipe:", error);
+    throw error;
+  }
+};
