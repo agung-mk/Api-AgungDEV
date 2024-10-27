@@ -107,41 +107,59 @@ const swaggerDocument = {
       },
     },
     "/api/ai/widipe": {
-      get: {
-        tags: ["AI"],
-        summary: "Chat with Widipe AI",
-        parameters: [
-          {
-            in: "query",
-            name: "text",
+  get: {
+    tags: ["AI"],
+    summary: "Chat with Widipe AI",
+    parameters: [
+      {
+        in: "query",
+        name: "text",
+        schema: {
+          type: "string",
+        },
+        required: true,
+        description: "Please input your text",
+      },
+    ],
+    responses: {
+      200: {
+        description: "Result successfully returned from Widipe",
+        content: {
+          "application/json": {
             schema: {
-              type: "string",
+              type: "object",
+              properties: {
+                status: {
+                  type: "boolean",
+                  example: true,
+                },
+                creator: {
+                  type: "string",
+                  example: "widipe.com",
+                },
+                result: {
+                  type: "string",
+                  example: "Hallo! Wie kann ich dir helfen?",
+                },
+              },
             },
-            required: true,
-            description: "Please input your text",
           },
-        ],
-        responses: {
-          200: {
-            description: "Result successfully returned from Widipe",
-            content: {
-              "application/json": {
-                schema: {
-                  type: "object",
-                  properties: {
-                    status: {
-                      type: "boolean",
-                      example: true,
-                    },
-                    creator: {
-                      type: "string",
-                      example: "widipe.com",
-                    },
-                    result: {
-                      type: "string",
-                      example: "Hallo! Wie kann ich dir helfen?",
-                    },
-                  },
+        },
+      },
+      404: {
+        description: "Error: Endpoint not found",
+        content: {
+          "application/json": {
+            schema: {
+              type: "object",
+              properties: {
+                status: {
+                  type: "boolean",
+                  example: false,
+                },
+                message: {
+                  type: "string",
+                  example: "Endpoint not found, please check the URL",
                 },
               },
             },
@@ -150,7 +168,5 @@ const swaggerDocument = {
       },
     },
   },
-  "x-request-time": new Date().toISOString(),
-};
+}
 
-module.exports = { swaggerDocument, options };
