@@ -28,9 +28,13 @@ exports.gptWidipe = async (text) => {
       status: response.data.status,
       creator: response.data.creator,
       result: response.data.result
-    }; // Mengambil respons dari Widipe
+    };
   } catch (error) {
-    console.error("Error fetching GPT response from Widipe:", error);
+    if (error.response && error.response.status === 404) {
+      console.error("Endpoint not found (404): Check the URL or endpoint availability");
+    } else {
+      console.error("Error fetching GPT response from Widipe:", error);
+    }
     throw error;
   }
 };
