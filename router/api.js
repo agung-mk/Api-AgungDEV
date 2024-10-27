@@ -35,12 +35,12 @@ const messages = {
 };
 
 // AI Routes
-router.get("/ai/chatgpt", async (req, res) => {
+router.get("/ai/gpt", async (req, res) => {
   const { query } = req.query;
   if (!query) return res.status(400).json(messages.query);
 
   try {
-    const data = await danz.ai.ChatGpt(query);
+    const data = await skrep.gptItzpire(query);
     if (!data) return res.status(404).json(messages.notRes);
     res.json({
       status: true,
