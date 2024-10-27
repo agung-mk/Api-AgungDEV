@@ -11,7 +11,7 @@ exports.gptItzpire = async (q) => {
         accept: "application/json"
       }
     });
-    return response.data.data.response; // Mengambil respons dari Itzpire
+    return response.data.data.response; 
   } catch (error) {
     console.error("Error fetching GPT response from Itzpire:", error);
     throw error;
